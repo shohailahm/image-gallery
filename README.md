@@ -30,6 +30,10 @@ Deployment instructions:-
     * run command adb reverse tcp:8081 tcp:8081
     * once adb is up run react-native run-android
     
+
+    Incase of Icons not displaying
+    *run react-native link
+    *react-native run-android
     
 
 Who do I talk to?
