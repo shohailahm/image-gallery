@@ -56,7 +56,7 @@ class Gallery extends Component {
       )
     }
     return (
-      <ScrollView style={{flex:1}} indicatorStyle="black">
+      <ScrollView style={{flex:1}} indicatorStyle="black" windowSize={3}>
        <DialogBox images={images} shown={shown} addComment={this.addComment} uri={this.state.urls} index={index} hide={this.hideLightbox}/>
       <View
         style={{

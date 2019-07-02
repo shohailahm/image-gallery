@@ -1,11 +1,11 @@
 # image-gallery
 image gallery from json
 
-## Weather Forecast
 
 What is this repository for?
 
-    Weather Forecast for Munich for 10 days
+   Image Gallery
+   Json hosted on : https://api.myjson.com/bins/sh297
     Git clone :- https://github.com/shohailahm/image-gallery
 
 How do I get set up?

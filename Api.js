@@ -4,7 +4,7 @@ import {ToastAndroid} from 'react-native';
 export const getData=()=>{
     return axios({
         method: 'get',
-        url: 'https://api.myjson.com/bins/142jkr'
+        url: 'https://api.myjson.com/bins/sh297'
       })
       .then((res)=>{
         let images=res.data.pics;

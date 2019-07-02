@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dimensions, View,ScrollView,Image,Text,TextInput,TouchableOpacity } from 'react-native';
+import { Dimensions, View,ScrollView,Image,Text,TextInput,TouchableOpacity,ActivityIndicator } from 'react-native';
 import Dialog, { SlideAnimation, DialogContent,DialogFooter,DialogButton } from 'react-native-popup-dialog';
 const WIDTH = Dimensions.get('window').width;
 
@@ -14,9 +14,7 @@ export default class DialogBox extends React.Component{
         height={0.9}
         containerStyle={{flex:1,justifyContent:'center'}}
         visible={this.props.shown}
-        dialogAnimation={new SlideAnimation({
-        slideFrom: 'bottom',
-        })}>
+      >
       <DialogContent style={{height:"80%",width:'100%'}}>
      
       <Image source={{uri:this.props.uri}}         
@@ -26,7 +24,17 @@ export default class DialogBox extends React.Component{
             resizeMode: 'cover',
             borderRadius:4,
             marginTop:8
-          }}/>
+          }}
+          onLoadStart={() => this.setState({loading: true})}
+                                   onLoadEnd={() => {
+                                       this.setState({loading: false})
+    }}
+          />
+          {this.state.loading && 
+          <View style={{height:'80%'}}>
+              <ActivityIndicator/>
+          </View>
+         }
             <Text style={{color:'black',fontSize:24}}>Comments</Text>
           <View style={{marginTop:8,flexDirection:'row',alignItems:'center'}}>
         
