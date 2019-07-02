@@ -17,11 +17,6 @@ import { Provider } from 'react-redux';
 
 type Props = {};
 export default class App extends Component<Props> {
-  state={images:[]}
-  componentDidMount(){
-    //json hosted on http://myjson.com/142jkr
-
-  }
   render() {
     return (
       <View style={styles.container}>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dimensions, View,ScrollView,Image,Text,TextInput,TouchableOpacity,ActivityIndicator } from 'react-native';
-import Dialog, { SlideAnimation, DialogContent,DialogFooter,DialogButton } from 'react-native-popup-dialog';
-import { Container, Header, Content, Icon } from 'native-base';
+import Dialog, {  DialogContent,DialogButton } from 'react-native-popup-dialog';
+import {  Icon } from 'native-base';
 const WIDTH = Dimensions.get('window').width;
 
 export default class DialogBox extends React.Component{
@@ -59,13 +59,13 @@ export default class DialogBox extends React.Component{
           </View>
           <View style={{height:120,marginTop:4}}>
           <ScrollView>
-          {images.comments && images.comments.map((item,ind)=>(
-              <View style={{flexDirection:'row',justifyContent:'space-between',width:'80%'}}>
-                 <Text style={{color:'#000',paddingLeft:8,paddingVertical:2}}>{item}</Text>
-                 <Icon name="trash" fontSize={24} color={"#202020"} onPress={()=>this.props.deleteComment(this.props.index,ind)}/>
-              </View>
-             
-            ))}
+            {images.comments && images.comments.map((item,ind)=>(
+                <View style={{flexDirection:'row',justifyContent:'space-between',width:'80%'}}>
+                  <Text style={{color:'#000',paddingLeft:8,paddingVertical:2}}>{item}</Text>
+                  <Icon name="trash" fontSize={24} color={"#202020"} onPress={()=>this.props.deleteComment(this.props.index,ind)}/>
+                </View>
+              
+              ))}
            </ScrollView>
            
           </View>
