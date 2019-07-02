@@ -5,8 +5,10 @@ image gallery from json
 What is this repository for?
 
    Image Gallery
+
    Json hosted on : https://api.myjson.com/bins/sh297
-    Git clone :- https://github.com/shohailahm/image-gallery
+
+   Git clone :- https://github.com/shohailahm/image-gallery
 
 How do I get set up?
 
@@ -32,8 +34,8 @@ Deployment instructions:-
     
 
     Incase of Icons not displaying
-    *run react-native link
-    *react-native run-android
+    * run react-native link
+    * react-native run-android
     
 
 Who do I talk to?
