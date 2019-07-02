@@ -19,14 +19,13 @@ class Gallery extends Component {
   componentDidMount(){
     this.props.dispatch(userActions.getImages())
   }
-  showLightbox = (index,uri) => {
-    // let imgurls=this.props.images.map((image)=>{
-    //   return image.download_url;
-    // })
+  showLightbox = (index,image) => {
+
     this.setState({
-      urls:uri,
+      urls:image.download_url,
       index,
       shown: true,
+      currentImage:image
     });
   };
   hideLightbox = () => {
@@ -44,6 +43,13 @@ class Gallery extends Component {
     
   }
 
+  deleteComment=(mainInd,commentInd)=>{
+    let imagesList=[...this.props.images];
+    let img=imagesList[mainInd];
+     img.comments.splice(commentInd,1);
+    this.props.dispatch(userActions.addComments(imagesList))
+  }
+
 
   render() {
     const { images } = this.props;
@@ -57,7 +63,7 @@ class Gallery extends Component {
     }
     return (
       <ScrollView style={{flex:1}} indicatorStyle="black" windowSize={3}>
-       <DialogBox images={images} shown={shown} addComment={this.addComment} uri={this.state.urls} index={index} hide={this.hideLightbox}/>
+       <DialogBox images={images[this.state.index]} shown={shown} addComment={this.addComment} deleteComment={this.deleteComment} uri={this.state.urls} index={index} hide={this.hideLightbox}/>
       <View
         style={{
           flexDirection: 'row',
@@ -68,6 +74,7 @@ class Gallery extends Component {
             <GalleryImage
               index={idx}
               key={idx}
+              image={image}
               onPress={this.showLightbox}
               uri={image.download_url}
             />

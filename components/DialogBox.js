@@ -1,6 +1,7 @@
 import React from 'react';
 import { Dimensions, View,ScrollView,Image,Text,TextInput,TouchableOpacity,ActivityIndicator } from 'react-native';
 import Dialog, { SlideAnimation, DialogContent,DialogFooter,DialogButton } from 'react-native-popup-dialog';
+import { Container, Header, Content, Icon } from 'native-base';
 const WIDTH = Dimensions.get('window').width;
 
 export default class DialogBox extends React.Component{
@@ -19,7 +20,7 @@ export default class DialogBox extends React.Component{
      
       <Image source={{uri:this.props.uri}}         
         style={{
-            height:'80%',
+            height:'70%',
             width:'100%',
             resizeMode: 'cover',
             borderRadius:4,
@@ -45,6 +46,7 @@ export default class DialogBox extends React.Component{
               value={this.state.text}
               style={{borderWidth:0.5,width:'80%',borderRadius:8}}
          />
+      
          {!!this.state.text && 
          <TouchableOpacity onPress={()=>{ 
              this.props.addComment(this.props.index,this.state.text)
@@ -55,10 +57,17 @@ export default class DialogBox extends React.Component{
          </TouchableOpacity>
         }
           </View>
-          <View>
-            {images && images[this.props.index] &&images[this.props.index].comments && images[this.props.index].comments.map((item,ind)=>(
-              <Text style={{color:'#000'}}>{item}</Text>
+          <View style={{height:120,marginTop:4}}>
+          <ScrollView>
+          {images.comments && images.comments.map((item,ind)=>(
+              <View style={{flexDirection:'row',justifyContent:'space-between',width:'80%'}}>
+                 <Text style={{color:'#000',paddingLeft:8,paddingVertical:2}}>{item}</Text>
+                 <Icon name="trash" fontSize={24} color={"#202020"} onPress={()=>this.props.deleteComment(this.props.index,ind)}/>
+              </View>
+             
             ))}
+           </ScrollView>
+           
           </View>
         <DialogButton
           text="Close"

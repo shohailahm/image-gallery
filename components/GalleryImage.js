@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Dimensions } from 'react-native';
+import { Dimensions,Image } from 'react-native';
 import { Button } from 'native-base';
-import { Image } from 'react-native-animatable';
+
 const WIDTH = Dimensions.get('window').width;
 export default class GalleryImage extends Component {
   render() {
-    const { uri, index,onLongPress } = this.props;
+    const { uri, index,onLongPress,image } = this.props;
     return (
       <Button
-        onPress={() => this.props.onPress(index,uri)}
+        onPress={() => this.props.onPress(index,image)}
         // onLongPress={()=>onLongPress(index)}
         style={{
           backgroundColor: 'transparent',
@@ -20,9 +20,6 @@ export default class GalleryImage extends Component {
         }}
       >
         <Image
-          animation={'bounceIn'}
-          delay={100 * index}
-          duration={500}
           source={ {uri} }
           style={{
             height: 90,
