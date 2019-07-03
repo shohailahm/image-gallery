@@ -27,7 +27,7 @@ export default class GalleryImage extends Component {
             position: 'absolute',
             resizeMode: 'cover',
             top: 0,
-            width: WIDTH / 2,
+            width: WIDTH / 3,
           }}
         />
       </Button>
